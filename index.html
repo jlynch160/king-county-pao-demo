@@ -71,7 +71,7 @@
 
 /* ============ GLOBAL COPILOT FAB (always-on, bottom-right) ============ */
 .kc-fab {
-  position: fixed; bottom: 20px; right: 100px;
+  position: fixed; bottom: 20px; right: 20px;
   width: 52px; height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, #36c5f0 0%, #7b5bff 40%, #c85bff 65%, #ff5a8c 85%, #ff8a3a 100%);
@@ -4510,68 +4510,21 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
 
 /* ============ REALISM v2 — connectors dock, cost ticker, keyboard cheatsheet, collab + comments ============ */
 
-/* Connector status dock (floating, always-on) */
-.kc-connectors {
-  position: fixed; bottom: 64px; right: 20px;
-  width: 270px;
-  background: rgba(15, 23, 42, 0.96);
-  backdrop-filter: blur(6px);
-  color: #d0d7df;
-  border-radius: 8px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.08);
-  font-size: 11px;
-  z-index: 300;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.kc-connectors:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(0,0,0,0.5); }
-.kc-conn-head {
-  padding: 8px 12px;
-  display: flex; align-items: center; gap: 6px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: linear-gradient(90deg, rgba(255,225,154,0.06), transparent);
-}
-.kc-conn-head strong { color: #fff; font-size: 11.5px; }
-.kc-conn-all {
-  margin-left: auto;
-  background: rgba(16, 124, 16, 0.25); color: #8ed69a;
-  padding: 1px 7px; border-radius: 8px;
-  font-size: 9.5px; font-weight: 700;
-}
-.kc-conn-list { padding: 4px 0; }
-.kc-conn-row {
-  display: grid; grid-template-columns: 10px 18px 1fr auto;
-  gap: 7px;
-  padding: 4px 12px;
-  font-size: 11px;
-  align-items: center;
-}
-.kc-conn-ico-svg { width: 16px; height: 16px; border-radius: 3px; display: block; }
-.kc-conn-row small { color: #7a8596; font-size: 9.5px; font-family: "Segoe UI", monospace; }
+/* Tiny status dot — still used in Power Automate + Copilot Studio designer health badges */
 .kc-conn-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: #8ed69a;
   box-shadow: 0 0 0 0 rgba(142,214,154,0.5);
   animation: dotPulse 1.8s infinite;
+  display: inline-block;
 }
 .kc-conn-dot.warn { background: #ffcb6b; }
 .kc-conn-dot.err  { background: #ff8a8a; }
 .kc-conn-dot.ok   { background: #8ed69a; }
-.kc-conn-row.active { background: rgba(58, 159, 232, 0.12); }
-.kc-conn-row.active .kc-conn-dot { background: #4fc3f7; box-shadow: 0 0 8px 2px rgba(79, 195, 247, 0.6); }
-
-.kc-conn-foot {
-  padding: 8px 12px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-size: 10px; color: #7a8596;
-  display: flex; justify-content: space-between; gap: 6px;
-}
-.kc-conn-foot strong { color: #c0c7d1; font-weight: 600; }
 
 /* Running Azure AI cost ticker */
 .kc-cost-ticker {
-  position: fixed; bottom: 20px; right: 20px;
+  position: fixed; bottom: 82px; right: 20px;
   background: rgba(15, 23, 42, 0.96);
   backdrop-filter: blur(6px);
   color: #fff;
@@ -8822,28 +8775,6 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
         <span class="kc-efile-recv" id="kc-efile-recv">Awaiting filing receipt…</span>
         <button class="kc-efile-close" id="kc-efile-close-btn" onclick="kcCloseEfile()">Done</button>
       </div>
-    </div>
-  </div>
-
-  <!-- ========== CONNECTOR STATUS DOCK (live connection indicators) ========== -->
-  <div id="kc-connectors" class="kc-connectors" title="Live tenant-service connections · click for details" onclick="kcToggleConnectorPanel()">
-    <div class="kc-conn-head">
-      <svg width="11" height="11" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;"><path d="M4 4h8v8H4z" fill="#0a2e4f"/><path d="M2 8h3M11 8h3M8 2v3M8 11v3" stroke="#0a2e4f" stroke-width="1"/></svg>
-      <strong>Tenant connectors</strong>
-      <span class="kc-conn-all" id="kc-conn-all">6/6 healthy</span>
-    </div>
-    <div class="kc-conn-list" id="kc-conn-list">
-      <div class="kc-conn-row" data-svc="graph"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcGraph"/></svg><span>Microsoft Graph</span><small>1.2 M calls/mo</small></div>
-      <div class="kc-conn-row" data-svc="sharepoint"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcSharePoint"/></svg><span>SharePoint</span><small>14 ms p95</small></div>
-      <div class="kc-conn-row" data-svc="purview"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcPurview"/></svg><span>Microsoft Purview</span><small>labels healthy</small></div>
-      <div class="kc-conn-row" data-svc="jis"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcJis"/></svg><span>WSP · JIS</span><small>avg 420 ms</small></div>
-      <div class="kc-conn-row" data-svc="odyssey"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcOdyssey"/></svg><span>Odyssey Case Mgmt</span><small>eDiscovery v5.4</small></div>
-      <div class="kc-conn-row" data-svc="kcso"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcKcso"/></svg><span>KCSO · Axon</span><small>OAuth · 6h</small></div>
-      <div class="kc-conn-row" data-svc="fserve"><span class="kc-conn-dot ok"></span><svg class="kc-conn-ico-svg" width="16" height="16"><use href="#svcFServe"/></svg><span>WA File &amp; Serve</span><small>receipts live</small></div>
-    </div>
-    <div class="kc-conn-foot">
-      <span>Signed in · <strong>sarah.chen@kingcounty.gov</strong></span>
-      <span>Session expires 15:24 PST</span>
     </div>
   </div>
 
