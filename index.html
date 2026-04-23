@@ -7772,55 +7772,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
     <div class="agent-grid" id="agent-grid">
       <!-- Filled by renderAgents() per persona; the "Build your own" card is always appended. -->
     </div>
-    <!-- Legacy static cards retained below (hidden by JS that empties #agent-grid on load) for diff reference only. -->
-    <div style="display:none;">
-      <div class="agent-card" onclick="toggleCopilot('agent','bedcoord'); setTimeout(()=>runCopilotByKey('agent','status'),400);">
-        <svg class="agent-logo" width="52" height="52"><use href="#agentLogoBed"/></svg>
-        <div class="agent-meta">
-          <div class="agent-name">File Validator</div>
-          <div class="agent-desc">Scans case files across Odyssey + SharePoint for missing docs and retention-policy issues across 6 divisions.</div>
-          <div class="agent-pill"><span class="dot"></span>Live · last sync 2 min ago</div>
-        </div>
-      </div>
-      <div class="agent-card" onclick="toggleCopilot('agent','intake'); setTimeout(()=>runCopilotByKey('agent','intake'),400);">
-        <svg class="agent-logo" width="52" height="52"><use href="#agentLogoIntake"/></svg>
-        <div class="agent-meta">
-          <div class="agent-name">Sheriff Report Front Door</div>
-          <div class="agent-desc">Routes incoming case intakes (address change, declarations of probable cause) and pre-stages the case file + manager loop.</div>
-          <div class="agent-pill"><span class="dot"></span>3 new intakes awaiting review</div>
-        </div>
-      </div>
-      <div class="agent-card" onclick="toggleCopilot('agent','priorauth'); setTimeout(()=>runCopilotByKey('agent','scan'),400);">
-        <svg class="agent-logo" width="52" height="52"><use href="#agentLogoShield"/></svg>
-        <div class="agent-meta">
-          <div class="agent-name">PTO Assistant</div>
-          <div class="agent-desc">Handles PTO balance lookups + requests in Teams, routes manager approvals, and posts to JIS.</div>
-          <div class="agent-pill warn"><span class="dot warn"></span>2 approvals pending &gt;48h</div>
-        </div>
-      </div>
-      <div class="agent-card" onclick="toggleCopilot('agent','trial'); setTimeout(()=>runCopilotByKey('agent','match'),400);">
-        <svg class="agent-logo" width="52" height="52"><use href="#agentLogoTrial"/></svg>
-        <div class="agent-meta">
-          <div class="agent-name">Onboarding Nudge</div>
-          <div class="agent-desc">Monitors 30/60/90-day onboarding checklists and nudges managers with specific outstanding items.</div>
-          <div class="agent-pill good"><span class="dot good"></span>2 new hires off-track at day 30</div>
-        </div>
-      </div>
-      <div class="agent-card agent-build-card" onclick="openAgentBuilder()">
-        <div class="agent-build-icon">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M14 8v12M8 14h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </div>
-        <div class="agent-meta">
-          <div class="agent-name">Build your own agent</div>
-          <div class="agent-desc">Describe what you want, point it at your SharePoint or OneDrive, and it's ready in a few minutes — no code.</div>
-          <div class="agent-pill" style="background:linear-gradient(135deg,#eef3f8,#e4efff);color:var(--kc-navy);">
-            <svg width="12" height="12" style="flex-shrink:0;"><use href="#copilotLogo"/></svg>
-            Included with Microsoft 365 Copilot
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /hidden legacy agent cards -->
+    <!-- Legacy display:none agent cards removed — renderAgents() builds the grid from PERSONAS data. -->
   </div>
 
   <!-- ========== OUTLOOK ========== -->
@@ -9163,7 +9115,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <tr><td>4 min ago</td><td>L. Thomas</td><td>Word</td><td>Draft declaration of probable cause</td><td>3 docs</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
             <tr><td>8 min ago</td><td>Maria Gutierrez</td><td>Excel</td><td>Find file-validation exceptions</td><td>1 sheet · file scan</td><td>${labelChip('conf')}</td><td class="ok">✓</td></tr>
             <tr><td>12 min ago</td><td>Sarah Chen</td><td>Outlook</td><td>Triage inbox</td><td>147 messages</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
-            <tr><td>19 min ago</td><td>PTO Assistant</td><td>Agent</td><td>Process PTO requests</td><td>14 requests · JIS</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
+            <tr><td>19 min ago</td><td>Charging Review Copilot</td><td>Agent</td><td>Triage overnight KCSO referrals</td><td>18 cases · WSP JIS</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
             <tr><td>26 min ago</td><td>J. Okonkwo</td><td>Outlook</td><td>Tried to forward Case-file PII to personal email</td><td>—</td><td>${labelChip('phi')}</td><td class="bad">✕ Blocked by DLP</td></tr>
             <tr><td>34 min ago</td><td>Priya Raman</td><td>Word</td><td>Review draft</td><td>Verification letter</td><td>${labelChip('phi')}</td><td class="ok">✓</td></tr>
           </tbody>
@@ -9665,15 +9617,15 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <span class="pages-ai-src">from <strong>Q2 Criminal Division Metrics.xlsx</strong> · synced 3 min ago</span>
           </div>
           <div class="pages-kpis">
-            <div class="pages-kpi"><div class="pages-kpi-v">1,247</div><div class="pages-kpi-l">PAO service requests ▲7%</div></div>
-            <div class="pages-kpi"><div class="pages-kpi-v">612</div><div class="pages-kpi-l">PTO in Teams ▲4×</div></div>
-            <div class="pages-kpi"><div class="pages-kpi-v" style="color:#107c10;">68%</div><div class="pages-kpi-l">Self-service</div></div>
-            <div class="pages-kpi"><div class="pages-kpi-v">4.6/5</div><div class="pages-kpi-l">Client satisfaction ▲0.3</div></div>
+            <div class="pages-kpi"><div class="pages-kpi-v">4,602</div><div class="pages-kpi-l">Declarations auto-drafted ▲38%</div></div>
+            <div class="pages-kpi"><div class="pages-kpi-v">−48 min</div><div class="pages-kpi-l">Avg filing turnaround</div></div>
+            <div class="pages-kpi"><div class="pages-kpi-v" style="color:#107c10;">96.8%</div><div class="pages-kpi-l">Same-day filing rate</div></div>
+            <div class="pages-kpi"><div class="pages-kpi-v">0</div><div class="pages-kpi-l">Discovery redaction misses</div></div>
           </div>
         </div>
 
         <h2 class="pages-h2">The story this quarter</h2>
-        <p class="pages-p">PAO inbox volume is up 7%, but DPA touch-time is down sharply — the PTO agent in Teams auto-handled <strong>612 requests</strong> that would have been inbox tickets last quarter, and the File Validator surfaced <strong>237 compliance exceptions</strong> (14 missing bar-admission certs, 62 missing handbook acknowledgments) that are now <strong>82% remediated</strong>. CSAT up 0.3 to 4.6/5. The pattern worth watching: verification-letter turnaround. We generated 184 letters but 11 took &gt;2 days — the Front Door intake rollout in Phase 2 should close that.</p>
+        <p class="pages-p">Charging throughput is up 38% since the Sheriff Report Intake agent went live in February — <strong>4,602 declarations</strong> drafted from scanned KCSO reports, with same-day filing rate jumping from 62% to <strong>96.8%</strong>. Discovery Redaction Copilot has auto-masked <strong>1.2 M PII items</strong> across 312 packets, with <strong>zero missed redactions</strong> on defense post-release audits (compared to 4 misses in Q1 pre-Copilot). Victim Services throughput tripled — <strong>9,184 Marsy's Law notifications</strong> auto-drafted, with 0 tone escalations. The pattern worth watching: PRA Desk. We're at <strong>412 requests in staging</strong> and need to migrate to prod before the Seattle Times omnibus request lands in June.</p>
 
         <div class="pages-block suggestion">
           <div class="pages-block-head">
@@ -9681,7 +9633,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <span class="pages-ai-src">based on this page + your Council briefing deck</span>
           </div>
           <div class="pages-sug-text">
-            Want me to add a <strong>Top 3 Wins</strong> section pulled from the Q2 town hall deck? I'll mirror the deck so if it changes, this page updates.
+            Want me to add a <strong>Top 3 Wins</strong> section pulled from the Q2 Council briefing deck? I'll mirror the deck so if it changes, this page updates.
           </div>
           <div class="pages-sug-actions">
             <button class="pages-btn primary">Add section</button>
@@ -9692,9 +9644,9 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
         <h2 class="pages-h2">Decisions &amp; owners</h2>
         <div class="pages-table">
           <div class="pages-tr head"><div>Decision</div><div>Owner</div><div>Due</div><div>Status</div></div>
-          <div class="pages-tr"><div>File-validation exception cleanup · Facilities &amp; Research</div><div>M. Gutierrez</div><div>May 15</div><div><span class="pill good">On track</span></div></div>
-          <div class="pages-tr"><div>Sheriff Report Front Door intake launch (Phase 2 — addr change + verification)</div><div>L. Thomas</div><div>May 20</div><div><span class="pill warn">At risk</span></div></div>
-          <div class="pages-tr"><div>Onboarding Nudge pilot · Criminal Division</div><div>M. Johnson</div><div>Jun 15</div><div><span class="pill good">On track</span></div></div>
+          <div class="pages-tr"><div>Public Records Act Desk · staging → prod (before Seattle Times omnibus)</div><div>P. Raman</div><div>May 15</div><div><span class="pill warn">At risk</span></div></div>
+          <div class="pages-tr"><div>Discovery Redaction Copilot · expand to Appeals Division</div><div>L. Thomas</div><div>May 20</div><div><span class="pill good">On track</span></div></div>
+          <div class="pages-tr"><div>Juvenile Case Protection · RCW 13.50 annual audit</div><div>M. Johnson</div><div>Jun 15</div><div><span class="pill good">On track</span></div></div>
         </div>
 
         <div class="pages-comments">
@@ -9944,21 +9896,22 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
         </div>
       </div>
       <div class="studio-bar">
-        <span class="sb-pill">12 agents · 8 published</span>
-        <span class="sb-pill">47K conversations this month</span>
+        <span class="sb-pill">6 agents · 5 published · 1 in staging</span>
+        <span class="sb-pill">28K conversations this month</span>
         <span class="sb-pill">Avg. CSAT 4.6 / 5</span>
         <span class="sb-pill good">✓ Environment healthy</span>
       </div>
       <div class="studio-agents">
         <div class="studio-row head"><div>Agent</div><div>Channel</div><div>Connectors</div><div>Conversations (30d)</div><div>Status</div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoShield"/></svg><strong>PTO Assistant</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Victim Services & Paralegals · prod</span></div><div>Teams + Web</div><div><span class="sb-pill">JIS (Aquera)</span><span class="sb-pill">Odyssey Case Management</span></div><div>12,482</div><div><span class="pill good">● Live</span></div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoBed"/></svg><strong>File Validator</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · prod</span></div><div>Teams</div><div><span class="sb-pill">Odyssey Case Management</span><span class="sb-pill">SharePoint</span></div><div>8,115</div><div><span class="pill good">● Live</span></div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoTrial"/></svg><strong>Onboarding Nudge</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · pilot</span></div><div>Teams + Mobile</div><div><span class="sb-pill">Odyssey Case Management</span><span class="sb-pill">Outlook</span></div><div>2,310</div><div><span class="pill warn">● Pilot (Engineering)</span></div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoIntake"/></svg><strong>Sheriff Report Front Door</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · prod</span></div><div>Web + Email</div><div><span class="sb-pill">Odyssey Case Management</span><span class="sb-pill">Power Automate</span></div><div>4,602</div><div><span class="pill good">● Live</span></div></div>
-        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoReadmit"/></svg><strong>Policy RAG (Filing & Disposition Manual)</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · staging</span></div><div>Teams</div><div><span class="sb-pill">SharePoint</span><span class="sb-pill">Dataverse</span></div><div>142</div><div><span class="pill warn">● Staging</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#svcReportIntake"/></svg><strong>Sheriff Report Intake</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · prod</span></div><div>Web + Email</div><div><span class="sb-pill">KCSO · Axon</span><span class="sb-pill">Doc Intelligence</span><span class="sb-pill">Odyssey</span></div><div>4,602</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoShield"/></svg><strong>Charging Review Copilot</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · prod</span></div><div>Teams + Web</div><div><span class="sb-pill">WSP · JIS</span><span class="sb-pill">Odyssey</span><span class="sb-pill">SharePoint</span></div><div>8,115</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#svcPurview"/></svg><strong>Discovery Redaction Copilot</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Criminal Division · prod · human-approval gated</span></div><div>Word + Teams</div><div><span class="sb-pill">Azure AI Language</span><span class="sb-pill">Purview</span><span class="sb-pill">Graph</span></div><div>3,248</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoIntake"/></svg><strong>Victim Notification Agent</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Victim Services · prod</span></div><div>Teams + Outlook</div><div><span class="sb-pill">Odyssey</span><span class="sb-pill">VINE</span><span class="sb-pill">Azure OpenAI</span></div><div>9,184</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoTrial"/></svg><strong>Juvenile Case Protection</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">Juvenile Division · prod · RCW 13.50 enforcement</span></div><div>Tenant-wide</div><div><span class="sb-pill">Purview</span><span class="sb-pill">Graph</span><span class="sb-pill">SharePoint</span></div><div>2,412</div><div><span class="pill good">● Live</span></div></div>
+        <div class="studio-row"><div><svg width="28" height="28" style="vertical-align:-8px;margin-right:8px;"><use href="#agentLogoReadmit"/></svg><strong>Public Records Act Desk</strong><span style="display:block;font-size:11px;color:var(--gray-90);margin-left:36px;">PRA Office · staging · Foundry-evaluated</span></div><div>Web + Teams</div><div><span class="sb-pill">SharePoint</span><span class="sb-pill">Dataverse</span><span class="sb-pill">Foundry</span></div><div>412</div><div><span class="pill warn">● Staging</span></div></div>
       </div>
       <div class="studio-note">
-        <strong>Note:</strong> The PAO agents on the home page for DPAs and managers were built with the lightweight agent builder included with M365 Copilot. This view shows the full Copilot Studio — same starting point, more connectors (JIS, Odyssey, state retirement systems), channels, and flow triggers.
+        <strong>Note:</strong> The PAO agents on the home page for DPAs and managers were built with the lightweight agent builder included with M365 Copilot. This view shows the full Copilot Studio — same starting point, more connectors (KCSO Axon, WSP JIS, Odyssey, WA File &amp; Serve), channels, and flow triggers. Foundry is wired as the evaluation + governance spine for the PRA agent (UC6).
       </div>
     </div>
   </div>
@@ -10067,25 +10020,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             </thead>
             <tbody>
               <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>PTO Assistant</strong><span>Victim Services & Paralegals · prod</span></div></td>
-                <td><span class="src-badge ms">Copilot Studio</span></td>
-                <td>M. Gutierrez</td>
-                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
-                <td>12,482</td>
-                <td><span class="risk-dot low"></span>Low</td>
-                <td><span class="pill good">● Live</span></td>
-              </tr>
-              <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>File Validator</strong><span>Criminal Division · prod</span></div></td>
-                <td><span class="src-badge ms">Copilot Studio</span></td>
-                <td>M. Johnson</td>
-                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
-                <td>8,115</td>
-                <td><span class="risk-dot low"></span>Low</td>
-                <td><span class="pill good">● Live</span></td>
-              </tr>
-              <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Sheriff Report Front Door</strong><span>Criminal Division · prod</span></div></td>
+                <td class="a-name"><svg width="22" height="22"><use href="#svcReportIntake"/></svg><div><strong>Sheriff Report Intake</strong><span>Criminal Division · prod</span></div></td>
                 <td><span class="src-badge ms">Copilot Studio</span></td>
                 <td>S. Chen</td>
                 <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
@@ -10094,25 +10029,52 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Onboarding Nudge</strong><span>Criminal Division · pilot</span></div></td>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>Charging Review Copilot</strong><span>Criminal Division · prod</span></div></td>
                 <td><span class="src-badge ms">Copilot Studio</span></td>
-                <td>S. Chen</td>
+                <td>M. Johnson</td>
                 <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
-                <td>2,310</td>
-                <td><span class="risk-dot low"></span>Low</td>
-                <td><span class="pill warn">● Pilot</span></td>
-              </tr>
-              <tr>
-                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoReadmit"/></svg><div><strong>Probable Cause Declaration</strong><span>Criminal Division · prod</span></div></td>
-                <td><span class="src-badge ms">Declarative agent</span></td>
-                <td>S. Chen</td>
-                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
-                <td>1,148</td>
+                <td>8,115</td>
                 <td><span class="risk-dot low"></span>Low</td>
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr>
-                <td class="a-name"><span class="ext-ico" style="background:#ff5a3c;">W</span><div><strong>Odyssey Case Management agent</strong><span>HRIS · prod</span></div></td>
+                <td class="a-name"><svg width="22" height="22"><use href="#svcPurview"/></svg><div><strong>Discovery Redaction Copilot</strong><span>Criminal Division · prod · DPA-approval gated</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>S. Chen</td>
+                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
+                <td>3,248</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Victim Notification Agent</strong><span>Victim Services · prod · Marsy's Law</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>M. Gutierrez</td>
+                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
+                <td>9,184</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Juvenile Case Protection</strong><span>Juvenile Division · prod · RCW 13.50</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>L. Thomas</td>
+                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
+                <td>2,412</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill good">● Live</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><svg width="22" height="22"><use href="#agentLogoReadmit"/></svg><div><strong>Public Records Act Desk</strong><span>PRA Office · staging · Foundry-evaluated</span></div></td>
+                <td><span class="src-badge ms">Copilot Studio</span></td>
+                <td>P. Raman</td>
+                <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra ID</span></td>
+                <td>412</td>
+                <td><span class="risk-dot low"></span>Low</td>
+                <td><span class="pill warn">● Staging</span></td>
+              </tr>
+              <tr>
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">O</span><div><strong>Odyssey Case Mgmt agent</strong><span>Case management · prod</span></div></td>
                 <td><span class="src-badge partner">Partner · Odyssey</span></td>
                 <td>D. Kowalski</td>
                 <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra + Odyssey SSO</span></td>
@@ -10121,9 +10083,9 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr>
-                <td class="a-name"><span class="ext-ico" style="background:#00a1e0;">SF</span><div><strong>Agentforce (Salesforce)</strong><span>Witness Services · prod</span></div></td>
-                <td><span class="src-badge partner">Partner · Salesforce</span></td>
-                <td>L. Nguyen</td>
+                <td class="a-name"><span class="ext-ico" style="background:#107c10;">FS</span><div><strong>WA File &amp; Serve agent</strong><span>E-filing · prod</span></div></td>
+                <td><span class="src-badge partner">Partner · File &amp; Serve</span></td>
+                <td>D. Kowalski</td>
                 <td><span class="id-chip"><svg class="kc-ico-inline" width="12" height="12" style="vertical-align:-2px;margin-right:3px;color:currentColor;"><use href="#fiLock"/></svg>Entra · federated</span></td>
                 <td>1,202</td>
                 <td><span class="risk-dot med"></span>Medium</td>
@@ -10148,7 +10110,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <td><span class="pill good">● Live</span></td>
               </tr>
               <tr class="a365-shadow">
-                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"PolicyGPT v2" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Athletics · unapproved</span></div></td>
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"LegalGPT Pro" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Misdemeanor unit · unapproved</span></div></td>
                 <td><span class="src-badge danger">Unknown · web</span></td>
                 <td>— (discovered)</td>
                 <td><span class="id-chip danger">⚠ No Entra</span></td>
@@ -10157,7 +10119,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <td><span class="pill urgent">● Quarantined</span></td>
               </tr>
               <tr class="a365-shadow">
-                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"DocuMate Assistant" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Dean's office · unapproved</span></div></td>
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"CaseBrief AI" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Browser extension · paralegal discovered</span></div></td>
                 <td><span class="src-badge danger">Unknown · browser ext</span></td>
                 <td>— (discovered)</td>
                 <td><span class="id-chip danger">⚠ No Entra</span></td>
@@ -10166,7 +10128,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <td><span class="pill urgent">● Quarantined</span></td>
               </tr>
               <tr class="a365-shadow">
-                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"ResumeReader-X" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Research hiring · unapproved</span></div></td>
+                <td class="a-name"><span class="ext-ico" style="background:#c50f1f;">!</span><div><strong>"DocRedact.ai" <span class="slabel" style="background:#fdecec;color:#8e0000;border-color:#f2c3c3;margin-left:4px;">SHADOW</span></strong><span>Discovery desk · unapproved SaaS</span></div></td>
                 <td><span class="src-badge danger">Unknown · SaaS</span></td>
                 <td>— (discovered)</td>
                 <td><span class="id-chip danger">⚠ No Entra</span></td>
@@ -10189,16 +10151,16 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
               <span class="adm-live"><span class="adm-live-dot"></span>Live</span>
             </div>
             <div class="a365-feed" id="a365-feed">
-              <div class="a365-feed-row"><span class="a365-feed-t">just now</span><span class="a365-feed-a">PTO Assistant</span><span class="a365-feed-d">Drafted PTO request for Garcia, E. (Facilities) → routed to T. Reilly for approval</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">4s ago</span><span class="a365-feed-a">File Validator</span><span class="a365-feed-d">Queried Odyssey file repo for Criminal Division (read-only)</span></div>
-              <div class="a365-feed-row bad"><span class="a365-feed-t">9s ago</span><span class="a365-feed-a">Agentforce (SF)</span><span class="a365-feed-d">⚠ Attempted to read an HR-PII-labeled field outside scope — <strong>DLP block</strong></span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">12s ago</span><span class="a365-feed-a">Sheriff Report Front Door</span><span class="a365-feed-d">Routed address-change request for Garcia, E. to Benefits queue</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">18s ago</span><span class="a365-feed-a">PAO GPT</span><span class="a365-feed-d">Summarized WSBA overtime section for Sarah Chen</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">22s ago</span><span class="a365-feed-a">Odyssey Case Management agent</span><span class="a365-feed-d">Flagged Castillo, P. missing handbook ack — routed to M. Gutierrez</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">28s ago</span><span class="a365-feed-a">Onboarding Nudge</span><span class="a365-feed-d">Screened 7 new hires at day-30 · 2 checklists behind</span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">34s ago</span><span class="a365-feed-a">Probable Cause Declaration</span><span class="a365-feed-d">Generated 3 probable-cause declarations · all 4-hour turnaround</span></div>
-              <div class="a365-feed-row bad"><span class="a365-feed-t">39s ago</span><span class="a365-feed-a">"PolicyGPT v2"</span><span class="a365-feed-d">⚠ Unapproved endpoint contact attempt — <strong>Conditional Access blocked</strong></span></div>
-              <div class="a365-feed-row"><span class="a365-feed-t">45s ago</span><span class="a365-feed-a">Now Assist (SN)</span><span class="a365-feed-d">Resolved ticket HD-4412 (password reset)</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">just now</span><span class="a365-feed-a">Sheriff Report Intake</span><span class="a365-feed-d">Drafted declaration from KCSO-26-04-0318-A.pdf (State v. Ortega) → DPA queue</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">4s ago</span><span class="a365-feed-a">Charging Review Copilot</span><span class="a365-feed-d">Triaged 6 overnight KCSO referrals · flagged 1 statute-of-limitations critical</span></div>
+              <div class="a365-feed-row bad"><span class="a365-feed-t">9s ago</span><span class="a365-feed-a">"DocRedact.ai" (shadow)</span><span class="a365-feed-d">⚠ Attempted to POST case-file PII to external SaaS — <strong>DLP block</strong></span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">12s ago</span><span class="a365-feed-a">Victim Notification Agent</span><span class="a365-feed-d">Drafted Marsy's Law hearing notification for Reyes family (EN + ES)</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">18s ago</span><span class="a365-feed-a">Discovery Redaction Copilot</span><span class="a365-feed-d">Auto-redacted 34 PII items on State v. Henderson packet · 2 flagged for DPA</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">22s ago</span><span class="a365-feed-a">Juvenile Case Protection</span><span class="a365-feed-d">Blocked email forward of juvenile matter (RCW 13.50) · auto-routed to sealed-docs</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">28s ago</span><span class="a365-feed-a">Public Records Act Desk</span><span class="a365-feed-d">Pulled responsive records for PRA-26-0184 (Seattle Times) · 5-day clock 3 days left</span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">34s ago</span><span class="a365-feed-a">Sheriff Report Intake</span><span class="a365-feed-d">Filed 3 declarations to Superior Court via File &amp; Serve · avg 2.1 s</span></div>
+              <div class="a365-feed-row bad"><span class="a365-feed-t">39s ago</span><span class="a365-feed-a">"LegalGPT Pro" (shadow)</span><span class="a365-feed-d">⚠ Unapproved endpoint contact attempt — <strong>Conditional Access blocked</strong></span></div>
+              <div class="a365-feed-row"><span class="a365-feed-t">45s ago</span><span class="a365-feed-a">Charging Review Copilot</span><span class="a365-feed-d">JIS prior-conviction lookup for overnight batch · 18 defendants · 0.4 s avg</span></div>
             </div>
           </div>
 
@@ -10280,10 +10242,10 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
                 <tr><th>Agent</th><th>Entra Agent ID</th><th>Scopes granted</th><th>Last rotated</th><th>Conditional Access</th></tr>
               </thead>
               <tbody>
-                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>PTO Assistant</strong><span>Victim Services & Paralegals</span></div></td><td><code class="a365-code">ai-pto-assist-01</code></td><td><span class="src-badge ms">Graph.Files.Read</span> <span class="src-badge ms">Mail.Send</span></td><td>14 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
-                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoBed"/></svg><div><strong>File Validator</strong><span>Criminal Division</span></div></td><td><code class="a365-code">ai-file-val-01</code></td><td><span class="src-badge ms">Graph.Read</span> <span class="src-badge partner">Odyssey.Files.Read</span></td><td>2 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Victim Notification Agent</strong><span>Victim Services · Marsy's Law</span></div></td><td><code class="a365-code">ai-victim-notif-01</code></td><td><span class="src-badge ms">Mail.Send</span> <span class="src-badge partner">VINE.Read</span></td><td>14 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoShield"/></svg><div><strong>Charging Review Copilot</strong><span>Criminal Division</span></div></td><td><code class="a365-code">ai-charging-rev-01</code></td><td><span class="src-badge ms">Graph.Read</span> <span class="src-badge partner">JIS.Priors.Read</span></td><td>2 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
                 <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoIntake"/></svg><div><strong>Sheriff Report Front Door</strong><span>Criminal Division</span></div></td><td><code class="a365-code">ai-hr-frontdoor-01</code></td><td><span class="src-badge ms">Graph.Files.ReadWrite</span> <span class="src-badge ms">Mail.Draft</span></td><td>21 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
-                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Onboarding Nudge</strong><span>Criminal Division</span></div></td><td><code class="a365-code">ai-onboard-nudge-01</code></td><td><span class="src-badge ms">Graph.Read</span> <span class="src-badge partner">Odyssey.NewHires.Read</span></td><td>7 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
+                <tr><td class="a-name"><svg width="22" height="22"><use href="#agentLogoTrial"/></svg><div><strong>Juvenile Case Protection</strong><span>Juvenile Division · RCW 13.50</span></div></td><td><code class="a365-code">ai-juv-protect-01</code></td><td><span class="src-badge ms">Purview.Write</span> <span class="src-badge ms">Graph.Mail.ReadWrite</span></td><td>7 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
                 <tr><td class="a-name"><span class="ext-ico" style="background:#00a1e0;">SF</span><div><strong>Agentforce (Salesforce)</strong><span>Witness Services</span></div></td><td><code class="a365-code">ai-sf-agentforce-01</code></td><td><span class="src-badge partner">SF.Read</span> <span class="src-badge ms">Graph.Files.Read</span></td><td>45 d ago · <span style="color:#c77700;font-weight:600;">rotate recommended</span></td><td><span class="pill warn">Attested</span></td></tr>
                 <tr><td class="a-name"><span class="ext-ico" style="background:#ff5a3c;">W</span><div><strong>Odyssey Case Management agent</strong><span>HRIS</span></div></td><td><code class="a365-code">ai-workday-hcm-01</code></td><td><span class="src-badge partner">Odyssey.Read</span></td><td>9 d ago</td><td><span class="pill good">✓ Restricted</span></td></tr>
               </tbody>
@@ -10303,12 +10265,12 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <div class="a365-card">
               <div class="a365-card-head"><div><div class="a365-card-title">Who can invoke what</div><div class="a365-card-sub">Role-to-agent mapping · top 6</div></div></div>
               <div class="a365-feed" style="max-height:none;">
-                <div class="a365-feed-row"><span class="a365-feed-t">DPAs</span><span class="a365-feed-a">File Val, Front Door, Onboarding</span><span class="a365-feed-d">428 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">Managers</span><span class="a365-feed-a">PTO, Onboarding Nudge</span><span class="a365-feed-d">340 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">Benefits</span><span class="a365-feed-a">PTO Assistant, Verification</span><span class="a365-feed-d">62 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">Witness Svcs</span><span class="a365-feed-a">Agentforce</span><span class="a365-feed-d">48 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">IT</span><span class="a365-feed-a">PAO GPT, Now Assist</span><span class="a365-feed-d">124 users</span></div>
-                <div class="a365-feed-row"><span class="a365-feed-t">Policy Analytics</span><span class="a365-feed-a">Policy RAG</span><span class="a365-feed-d">22 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">DPAs</span><span class="a365-feed-a">Charging Review, Sheriff Intake, Redaction</span><span class="a365-feed-d">142 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Paralegals</span><span class="a365-feed-a">Sheriff Intake, Redaction</span><span class="a365-feed-d">84 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Victim Services</span><span class="a365-feed-a">Victim Notification Agent</span><span class="a365-feed-d">36 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">Juvenile Div.</span><span class="a365-feed-a">Juvenile Case Protection</span><span class="a365-feed-d">28 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">PRA Office</span><span class="a365-feed-a">PRA Desk (Foundry)</span><span class="a365-feed-d">8 users</span></div>
+                <div class="a365-feed-row"><span class="a365-feed-t">IT / InfoSec</span><span class="a365-feed-a">All agents (governance)</span><span class="a365-feed-d">14 users</span></div>
               </div>
             </div>
           </div>
@@ -10392,40 +10354,40 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <div class="a365-inc warn">
               <div class="a365-inc-sev warn">MED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">Agentforce reading HR-PII-labeled fields outside scope</div>
-                <div class="a365-inc-s">Opened today · 12 events · Owner: L. Nguyen · Purview attestation requested</div>
+                <div class="a365-inc-t">WA File &amp; Serve agent reading case-file PII outside scope</div>
+                <div class="a365-inc-s">Opened today · 12 events · Owner: D. Kowalski · Purview attestation requested</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Investigate</button><button class="adm-f primary">Pause agent</button></div>
             </div>
             <div class="a365-inc warn">
               <div class="a365-inc-sev warn">MED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">PAO GPT approaching daily cost guardrail ($478 / $500)</div>
-                <div class="a365-inc-s">Opened 2d ago · token usage spike · no policy violation · monitoring</div>
+                <div class="a365-inc-t">Charging Review Copilot approaching daily cost guardrail ($478 / $500)</div>
+                <div class="a365-inc-s">Opened 2d ago · Azure OpenAI token spike from overnight backlog · no policy violation · monitoring</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Review prompts</button><button class="adm-f">Raise cap</button></div>
             </div>
             <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
               <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">PTO Assistant hit rate-limit on JIS (Aquera) API</div>
-                <div class="a365-inc-s">Resolved 4d ago · backoff + retry logic pushed · Owner: M. Gutierrez</div>
+                <div class="a365-inc-t">Sheriff Report Intake hit rate-limit on WSP JIS API</div>
+                <div class="a365-inc-s">Resolved 4d ago · backoff + retry logic pushed · Owner: S. Chen</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
             </div>
             <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
               <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">Sheriff Report Front Door — misclassified urgent ER case as routine</div>
-                <div class="a365-inc-s">Resolved 9d ago · instructions updated · manual re-review of 14 past triages · all clear</div>
+                <div class="a365-inc-t">Discovery Redaction Copilot — initial scan missed a juvenile-witness address</div>
+                <div class="a365-inc-s">Resolved 9d ago · grounding updated (RCW 13.50 patterns expanded) · manual re-review of 14 past packets · all clear</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
             </div>
             <div class="a365-inc" style="border-left-color:#107c10;background:linear-gradient(90deg,#eef9f1,#fff);">
               <div class="a365-inc-sev" style="background:#107c10;">RESOLVED</div>
               <div class="a365-inc-main">
-                <div class="a365-inc-t">Shadow browser-extension AI flagged in Bursar's Office</div>
-                <div class="a365-inc-s">Resolved 18d ago · endpoint policy updated · all extensions re-reviewed · Owner: IT Sec</div>
+                <div class="a365-inc-t">Shadow browser-extension AI flagged in Misdemeanor unit</div>
+                <div class="a365-inc-s">Resolved 18d ago · endpoint policy updated · all extensions re-reviewed · Owner: IT InfoSec</div>
               </div>
               <div class="a365-inc-actions"><button class="adm-f">Post-mortem</button></div>
             </div>
@@ -10445,15 +10407,15 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
           <div class="a365-card">
             <div class="a365-card-head"><div><div class="a365-card-title">Spend by agent · MTD</div><div class="a365-card-sub">Top 8 · all others rolled up</div></div></div>
             <div class="adm-uc" style="margin-top:8px;">
-              <div class="adm-uc-row"><span class="adm-uc-name">PAO GPT (custom)</span><div class="adm-uc-bar"><span style="width:92%;background:#7441e8;"></span></div><span class="adm-uc-n">$3,120</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">PTO Assistant</span><div class="adm-uc-bar"><span style="width:58%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,642</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">File Validator</span><div class="adm-uc-bar"><span style="width:42%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,088</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">Sheriff Report Front Door</span><div class="adm-uc-bar"><span style="width:28%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$712</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">Odyssey Case Management agent</span><div class="adm-uc-bar"><span style="width:22%;background:#ff5a3c;"></span></div><span class="adm-uc-n">$548</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">Agentforce (SF)</span><div class="adm-uc-bar"><span style="width:16%;background:#00a1e0;"></span></div><span class="adm-uc-n">$402</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">Onboarding Nudge</span><div class="adm-uc-bar"><span style="width:12%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$310</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">Now Assist</span><div class="adm-uc-bar"><span style="width:9%;background:#62d84e;"></span></div><span class="adm-uc-n">$218</span></div>
-              <div class="adm-uc-row"><span class="adm-uc-name">All others (39)</span><div class="adm-uc-bar"><span style="width:7%;background:var(--gray-90);"></span></div><span class="adm-uc-n">$200</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Charging Review Copilot</span><div class="adm-uc-bar"><span style="width:92%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$2,418</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Sheriff Report Intake</span><div class="adm-uc-bar"><span style="width:78%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$2,050</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Victim Notification Agent</span><div class="adm-uc-bar"><span style="width:58%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,528</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Discovery Redaction Copilot</span><div class="adm-uc-bar"><span style="width:48%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$1,260</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Juvenile Case Protection</span><div class="adm-uc-bar"><span style="width:22%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$584</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Odyssey Case Mgmt agent</span><div class="adm-uc-bar"><span style="width:16%;background:#c50f1f;"></span></div><span class="adm-uc-n">$412</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">WA File &amp; Serve agent</span><div class="adm-uc-bar"><span style="width:14%;background:#107c10;"></span></div><span class="adm-uc-n">$368</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">Public Records Act Desk (staging)</span><div class="adm-uc-bar"><span style="width:6%;background:#1b4aa8;"></span></div><span class="adm-uc-n">$148</span></div>
+              <div class="adm-uc-row"><span class="adm-uc-name">All others (shared + governance)</span><div class="adm-uc-bar"><span style="width:4%;background:var(--gray-90);"></span></div><span class="adm-uc-n">$112</span></div>
             </div>
           </div>
           <div class="a365-side">
@@ -10496,18 +10458,18 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
           <table class="a365-table" style="font-size:12px;">
             <thead><tr><th>Time</th><th>Agent</th><th>Invoked by</th><th>Prompt / action</th><th>Sources</th><th>Label</th><th>Outcome</th></tr></thead>
             <tbody>
-              <tr><td>09:14:22</td><td>File Validator</td><td>M. Gutierrez</td><td>"What's the file-exception picture right now?"</td><td>Odyssey files · read</td><td>—</td><td class="ok">✓ OK</td></tr>
-              <tr><td>09:14:11</td><td>PTO Assistant</td><td>T. Reilly</td><td>Approve PTO requests for Facilities</td><td>JIS (Aquera) · 14 requests</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:14:22</td><td>Charging Review Copilot</td><td>M. Gutierrez</td><td>"What's the overnight referral queue look like?"</td><td>WSP JIS · read</td><td>—</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:14:11</td><td>Victim Notification Agent</td><td>M. Gutierrez</td><td>Draft 6 Marsy's Law hearing notifications</td><td>Odyssey · VINE · 6 cases</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:13:58</td><td>Sheriff Report Front Door</td><td>S. Chen</td><td>Route 3 new intakes</td><td>Intake folder</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:13:42</td><td>PAO GPT</td><td>P. Raman</td><td>"Summarize WSBA overtime Section 4.1"</td><td>Reference · public</td><td>Public</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:13:20</td><td>Agentforce (SF)</td><td>L. Nguyen</td><td>Fetch witness employment record</td><td>SF · CDP</td><td>Case-file PII</td><td class="bad">✕ DLP block</td></tr>
-              <tr><td>09:12:58</td><td>Onboarding Nudge</td><td>M. Johnson</td><td>Screen new hires at day-30 checkpoint</td><td>Odyssey · Outlook</td><td>Confidential</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:12:58</td><td>Juvenile Case Protection</td><td>M. Johnson</td><td>Scan 18 outbound emails for sealed-juvenile content</td><td>Graph · Purview · 18 msgs</td><td>Confidential</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:12:41</td><td>Odyssey Case Management agent</td><td>D. Kowalski</td><td>Pending file exceptions for Criminal Division</td><td>Odyssey · REST</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:12:19</td><td>Probable Cause Declaration</td><td>(scheduled)</td><td>Nightly letter queue</td><td>3 open requests · Policy v4</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
               <tr><td>09:11:47</td><td>"PolicyGPT v2"</td><td>r.smith@kingcounty.gov</td><td>Unapproved endpoint POST</td><td>—</td><td>—</td><td class="bad">✕ CA blocked</td></tr>
               <tr><td>09:11:12</td><td>Now Assist</td><td>IT Ops</td><td>Resolve ticket HD-4412</td><td>ServiceNow</td><td>Internal</td><td class="ok">✓ OK</td></tr>
-              <tr><td>09:10:58</td><td>File Validator</td><td>M. Gutierrez</td><td>"Who's missing an bar-admission cert this week?"</td><td>Odyssey files · read</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
-              <tr><td>09:10:30</td><td>PTO Assistant</td><td>(scheduled)</td><td>Manager approval reminder scan</td><td>JIS · 14 pending</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:10:58</td><td>Discovery Redaction Copilot</td><td>M. Gutierrez</td><td>"Redact State v. Henderson packet for defense release"</td><td>Graph · Azure Language</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
+              <tr><td>09:10:30</td><td>Public Records Act Desk</td><td>(scheduled)</td><td>5-day PRA clock compliance scan</td><td>SharePoint · 12 open PRAs</td><td>Case-file PII</td><td class="ok">✓ OK</td></tr>
             </tbody>
           </table>
         </div>
@@ -10568,7 +10530,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
           <div class="rm-wave-body">
             <div class="rm-wave-col">
               <div class="rm-col-label">Scope</div>
-              <p><strong>PAO×IT AI operating model</strong>, governance baseline, Teams entry point decision (dedicated Criminal Division channel), document repos + retention owners named. Quick wins: <strong>File Validator</strong> (1A) + <strong>PTO Assistant in Teams</strong> (1B, JIS via Aquera).</p>
+              <p><strong>PAO×IT AI operating model</strong>, governance baseline, Teams entry point decision (dedicated Criminal Division channel), document repos + retention owners named. Quick wins: <strong>Sheriff Report Intake</strong> (1A) + <strong>Charging Review Copilot in Teams</strong> (1B, WSP JIS via custom connector).</p>
             </div>
             <div class="rm-wave-col">
               <div class="rm-col-label">Use cases live</div>
@@ -10649,7 +10611,7 @@ body.dark .rm-track { background: linear-gradient(90deg, #107c10 0%, #107c10 60%
             <div class="rm-wave-col">
               <div class="rm-col-label">Use cases target</div>
               <ul>
-                <li>Onboarding Nudge — 30/60/90 manager reminders</li>
+                <li>Juvenile Case Protection — RCW 13.50 sealing enforcement across the tenant</li>
                 <li>Off-track checklist detection + specific item nudges</li>
                 <li>Criminal Division pilot → all 6 divisions</li>
                 <li>Quarterly AI governance cadence</li>
@@ -11345,18 +11307,18 @@ function a365Tab(key) {
 
 // Agent 365 live-feed animator. Prepends a new activity row every 3–5s while the view is active.
 const A365_FEED_POOL = [
-  { bad:false, a:'PTO Assistant', d:'Checked JIS balance for new PTO request · approved 0.92 confidence' },
-  { bad:false, a:'File Validator', d:'Queried Odyssey files queue · 4 exceptions pending' },
+  { bad:false, a:'Victim Notification Agent', d:'Drafted 4 Marsy\'s Law notifications · tone score 0.92' },
+  { bad:false, a:'Charging Review Copilot', d:'Triaged 6 overnight KCSO referrals · 2 statute-critical' },
   { bad:true,  a:'Agentforce (SF)', d:'⚠ Tried to write an Case-file PII field — <strong>DLP block</strong>' },
   { bad:false, a:'Sheriff Report Front Door', d:'Requested prior-role docs for Okonkwo, D.' },
   { bad:false, a:'PAO GPT', d:'Summarized overnight ethics log for DPA queue' },
-  { bad:false, a:'Onboarding Nudge', d:'Re-scored 12 active new hires against 30/60/90 criteria' },
+  { bad:false, a:'Juvenile Case Protection', d:'Blocked 3 outbound emails with sealed-juvenile refs' },
   { bad:false, a:'Odyssey Case Management agent', d:'Surfaced pending bar-admission cert exceptions for 3 defendants' },
   { bad:false, a:'Probable Cause Declaration', d:'Added priority flag to Park, S. (0.71 confidence)' },
   { bad:true,  a:'"DocuMate Assistant"', d:'⚠ Attempted external HTTPS POST — <strong>Conditional Access blocked</strong>' },
   { bad:false, a:'Now Assist (SN)', d:'Routed ticket HD-4419 to laptop imaging queue' },
   { bad:false, a:'Executive Readout Agent', d:'Drafted weekly one-pager for Monday Cabinet readout' },
-  { bad:false, a:'PTO Assistant', d:'Sent approval-overdue reminder to T. Reilly (Facilities)' }
+  { bad:false, a:'Public Records Act Desk', d:'Sent 5-day-clock reminder to Priya Raman (Seattle Times PRA)' }
 ];
 function startAgent365Feed() {
   const feed = document.getElementById('a365-feed');
@@ -11675,7 +11637,7 @@ const TEAMS_CHANNELS = {
     html: `
       <div class="teams-post-card">
         <div class="tp-head"><div class="tp-av" style="background:#464775;color:#fff;">RG</div><div><strong>Rachel Goldberg (L&amp;D)</strong><span>Yesterday 11:00 AM</span></div></div>
-        <div class="tp-body">Reminder: 30/60/90 manager training workshop this Thursday. We'll go over the new Onboarding Nudge playbook. Lunch provided.</div>
+        <div class="tp-body">Reminder: Juvenile Case Protection + RCW 13.50 training this Thursday. We'll go over the new Juvenile Case Protection playbook. Lunch provided.</div>
       </div>
       <div class="teams-post-card">
         <div class="tp-head"><div class="tp-av" style="background:#2b8a55;color:#fff;">LT</div><div><strong>L. Thomas</strong><span>Mon 9:30 AM</span></div></div>
@@ -11705,7 +11667,7 @@ const TEAMS_CHANNELS = {
     html: `
       <div class="teams-post-card">
         <div class="tp-head"><div class="tp-av" style="background:#c50f1f;color:#fff;">RC</div><div><strong>Rebecca Chen (Payroll)</strong><span>Today 6:30 AM</span></div></div>
-        <div class="tp-body"><strong>🚨 Add-on:</strong> 58F Facilities supervisor with unexpected victim leave need, caregiver leave effective May 19. Needs intake today. Can we slot in between the 10 and 11 intakes?</div>
+        <div class="tp-body"><strong>🚨 Add-on:</strong> Late-arriving KCSO referral — high-profile DV case with a same-day charging decision needed before the 3 PM release clock expires. Can we slot in between the 10 and 11 reviews?</div>
         <div class="tp-reactions">👍 3 · 💬 5 replies</div>
       </div>
     `
@@ -14407,7 +14369,7 @@ function generateEmailDraft(em) {
   if (/jessica|huang|onboarding|handbook|direct deposit/.test(s)) {
     return `<p>Hi Jessica,</p>
       <p>Welcome to King County PAO — glad you reached out, and sorry for the double hiccup on week one.</p>
-      <p>On the <strong>handbook acknowledgment</strong>: it lives in the Onboarding task list inside Odyssey under "My Onboarding" → "Required Forms." If it's not appearing for you, the Onboarding Nudge agent may not have provisioned it yet. I'll push it manually so it shows up for you today.</p>
+      <p>On the <strong>DPA onboarding checklist</strong>: it lives in SharePoint under KCPAO Training &amp; CLE → "New DPA Onboarding." If it's not appearing for you, I can push the assignment manually so it shows up in your Teams Todo today.</p>
       <p>On <strong>direct deposit</strong>: if nothing posts by end of day Wednesday, call the Payroll line (555-555-XXXX) and I'll loop in Maria Gutierrez (Benefits). Most likely a routing-number mismatch we can fix same-day; no need to wait until Friday's check-in.</p>
       <p>Warmly,<br/>Sarah Chen, DPA<br/>Prosecuting Attorney’s Office · King County Prosecuting Attorney's Office</p>`;
   }
@@ -14647,9 +14609,9 @@ const APP_CONTEXT = {
   },
   agent_bedcoord: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#0078d4"><path d="M2 12V4h2v4h10V6h2v6h-2v-2H4v2H2zm6-5a2 2 0 100-4 2 2 0 000 4z"/></svg>',
-    chipText: "File Validator · Agent · 6 divisions connected",
+    chipText: "Charging Review Copilot · Agent · WSP JIS + Odyssey connected",
     tryPrompt: "'what file-exception picture right now?'",
-    messagePlaceholder: 'Ask the File Validator agent'
+    messagePlaceholder: 'Ask the Charging Review Copilot'
   },
   agent_intake: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#6264a7"><path d="M10 1H4a1 1 0 00-1 1v12a1 1 0 001 1h8a1 1 0 001-1V5l-4-4zM9 6V2l4 4H9z"/></svg>',
@@ -14659,15 +14621,15 @@ const APP_CONTEXT = {
   },
   agent_priorauth: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#0b8043"><path d="M8 1l6 2.5v4c0 3.5-2.5 6.5-6 7-3.5-0.5-6-3.5-6-7v-4L8 1z"/></svg>',
-    chipText: "PTO Assistant · 2 pending &gt;48h · 14 active",
-    tryPrompt: "'what's stuck this week?'",
-    messagePlaceholder: 'Ask the PTO Assistant agent'
+    chipText: "Victim Notification Agent · 2 queued · 14 sent today",
+    tryPrompt: "'what's queued for tonight?'",
+    messagePlaceholder: 'Ask the Victim Notification Agent'
   },
   agent_trial: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#a68340"><path d="M5 2h6l1 2h2a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1h2l1-2zm3 9a3 3 0 100-6 3 3 0 000 6z"/></svg>',
-    chipText: "Onboarding Nudge · today's 7 new-hire checkpoints",
-    tryPrompt: "'whose onboarding is off-track at day 30?'",
-    messagePlaceholder: 'Ask the Onboarding Nudge agent'
+    chipText: "Juvenile Case Protection · 4 cases sealed today",
+    tryPrompt: "'which outbound emails got blocked this week?'",
+    messagePlaceholder: 'Ask the Juvenile Case Protection agent'
   },
   outlook: {
     chipIcon: '<svg viewBox="0 0 16 16" fill="#0078d4"><path d="M2 3h12v10H2V3zm1 1v1.5l5 3 5-3V4H3zm10 2.7L8 9.5 3 6.7V12h10V6.7z"/></svg>',
@@ -14824,7 +14786,7 @@ function getSuggestions(app, context) {
         { shortLabel: "Show college-by-college turnaround", label: "Show this quarter's college-by-college PTO approval turnaround times.", key: "payer" }
       ] : context === 'trial' ? [
         { shortLabel: "Whose onboarding is off-track at day 30?", label: "Proactively flag new hires at 30/60/90 days whose onboarding checklists are incomplete, and nudge their manager with the specific outstanding items before they fall off track.", key: "match" },
-        { shortLabel: "Summarize best-match hire story", label: "Summarize the best Onboarding Nudge success story for Ms. Chang in plain language.", key: "summarize" },
+        { shortLabel: "Summarize victim notification story", label: "Summarize the best Victim Notification Agent success story for the Reyes family in plain language.", key: "summarize" },
         { shortLabel: "Draft manager 30/60/90 worksheet", label: "Draft a 30/60/90 checklist worksheet for Marcus Johnson.", key: "worksheet" }
       ] : []
     },
@@ -15180,7 +15142,7 @@ function getResponse(app, key) {
         <p><strong>Active concerns</strong></p>
         <ul>
           <li><strong>Castillo</strong> — bar-admission cert re-verify hold, benefits consulting. Re-check docs every 24h. If no resolution by Friday, escalate to legal.</li>
-          <li><strong>Hernandez</strong> — victim leave intake, caregiver leave effective 5/19. No further treatment escalation per intake. WH-380-F in file.</li>
+          <li><strong>Hernandez</strong> — paralegal coverage request for May 19; family-care absence. Backfill confirmed (J. Park). Calendar updated.</li>
           <li><strong>Chang</strong> — background clean, cleared to start. Will present at morning charging review Tuesday; no urgent overnight concerns.</li>
         </ul>
         <p><strong>Outstanding</strong></p>
@@ -15252,7 +15214,7 @@ function getResponse(app, key) {
       <h4>💌 Employee / self-service</h4>
       <ul>
         <li>Jensen family thanked you for last week's victim leave intake and asked for a written summary.</li>
-        <li>Jessica Huang messaged with missing handbook acknowledgment + direct-deposit issue (first week).</li>
+        <li>Jessica Huang messaged with missing bar-admission verification + Teams-access issue (new DPA, first week).</li>
         <li>Maria Gonzalez still waiting on address change to post in payroll — getting anxious.</li>
       </ul>
     `,
@@ -15261,7 +15223,7 @@ function getResponse(app, key) {
       <div style="background:#fff;border:1px solid var(--gray-30);border-radius:6px;padding:12px;font-size:12.5px;line-height:1.6;">
         <p>Hi Jessica,</p>
         <p>Welcome to King County PAO — glad you reached out, and sorry for the double hiccup on week one.</p>
-        <p>The <strong>handbook acknowledgment</strong> lives in the Onboarding task list inside Odyssey under "My Onboarding" → "Required Forms." If it's not appearing for you, the Onboarding Nudge agent may not have provisioned it yet. I'll push it manually so it shows up for you today.</p>
+        <p>The <strong>DPA onboarding checklist</strong> lives in SharePoint under KCPAO Training &amp; CLE → "New DPA Onboarding." If it's not appearing for you, I can push the assignment manually so it shows up in your Teams Todo today.</p>
         <p>For the <strong>direct deposit</strong>: if nothing posts by end of day Wednesday, <strong>please don't wait until Friday's check-in</strong>. Call the Payroll line (555-555-XXXX) and I'll loop in Maria Gutierrez. Most likely a routing-number mismatch we can fix same-day.</p>
         <p>Warmly,<br/>Sarah Chen, DPA<br/>Prosecuting Attorney’s Office · King County Prosecuting Attorney's Office</p>
       </div>
@@ -15272,7 +15234,7 @@ function getResponse(app, key) {
       <h4>Case 1 — Chang, Li-Wei (EID 923847)</h4>
       <ul>
         <li><strong>Summary:</strong> New hire · Sr. Research Coordinator, Criminal Division · background check clean · bar-admission cert scheduled day 1.</li>
-        <li><strong>Decision:</strong> Cleared to start Monday. Onboarding Nudge enrolled for 30/60/90 checkpoints.</li>
+        <li><strong>Decision:</strong> Cleared to start Monday. New-DPA bar-admission + WSBA check confirmed; CLE tracker enrolled.</li>
         <li><strong>Owner:</strong> Jenny Park (Onboarding Lead) · <strong>Timeline:</strong> Start within 1 week. <span class="cite" onclick="openSource('tumor-board-apr')">1</span></li>
       </ul>
       <h4>Case 2 — Castillo, Patricia (EID 892104)</h4>
@@ -15945,7 +15907,7 @@ function getResponse(app, key) {
         <li><strong>"Why did Client satisfaction response rate drop?"</strong> Answer: we migrated to Qualtrics in March; we're investigating.</li>
         <li><strong>"Is the self-service deflection sustainable?"</strong> Answer: yes if we keep PTO-in-Teams. We're tracking the leading indicator.</li>
         <li><strong>"What's next on DPA coverage?"</strong> Answer: deeper float pool, retention stipend program being designed.</li>
-        <li><strong>"What do you need from us?"</strong> Answer: 1 paralegal backfill + Phase 2 funding ($110K) + approval to expand Onboarding Nudge pilot.</li>
+        <li><strong>"What do you need from us?"</strong> Answer: 1 paralegal backfill + Phase 2 funding ($110K) + approval to move Public Records Act Desk from staging to production before the Seattle Times omnibus request lands in June.</li>
       </ol>
       <p>Rehearsal mode: I can ask you these questions one-by-one if you want to practice.</p>
     `
@@ -16199,14 +16161,14 @@ function populateDeck() {
         </div>
         <div class="win-card">
           <div class="win-icon">✦</div>
-          <div class="win-headline">File Validator caught 14 missing bar-admission certs before the state audit</div>
-          <div class="win-detail">Up from 0 proactive catches in Q1. Odyssey scan + manager notifications are the difference. Audit readiness, not panic.</div>
-          <div class="win-tag">Employee experience</div>
+          <div class="win-headline">Discovery Redaction Copilot · 0 missed redactions across 312 packets</div>
+          <div class="win-detail">Up from 4 misses in Q1 pre-Copilot. Azure AI Language + CrR 4.7 grounding + mandatory DPA acknowledgment gate. Defense-post-release audits: clean.</div>
+          <div class="win-tag">Compliance</div>
         </div>
         <div class="win-card">
           <div class="win-icon">♥</div>
-          <div class="win-headline">Two Employee Recognition Award nominations this quarter</div>
-          <div class="win-detail">Both from Criminal Division. Both called out specific moments with specific employees. Worth naming publicly at the town hall.</div>
+          <div class="win-headline">Victim Services throughput tripled — 9,184 notifications drafted</div>
+          <div class="win-detail">Marsy's Law compliance SLAs now met 98.6% of the time. Zero tone escalations. Spanish + English auto-drafted; DPA reviews every send.</div>
           <div class="win-tag">People</div>
         </div>
       </div>
@@ -16224,22 +16186,22 @@ function populateDeck() {
       <div class="focus-list">
         <div class="focus-row">
           <div class="fnum">1</div>
-          <div class="ftext">Launch Sheriff Report Front Door intake (Phase 2)
-            <em>Start with address change + declaration of probable cause of probable cause. Structured intake, confidence gating, and DPA escalation.</em>
+          <div class="ftext">Public Records Act Desk · staging → production
+            <em>Migrate the PRA agent before the Seattle Times omnibus request lands in June. Foundry-evaluated, 5-day clock orchestration, auto-exemption tracking.</em>
           </div>
-          <div class="fowner">M. Gutierrez</div>
+          <div class="fowner">P. Raman</div>
         </div>
         <div class="focus-row">
           <div class="fnum">2</div>
-          <div class="ftext">Client satisfaction response-rate recovery plan
-            <em>Work with Qualtrics to confirm methodology, then launch a department-level outreach so we're measuring what we think we're measuring.</em>
+          <div class="ftext">Discovery Redaction Copilot · expand to Appeals Division
+            <em>Extend CrR 4.7 redaction workflow beyond Criminal Division. Train the Appeals paralegal cohort on the DPA-approval gate.</em>
           </div>
           <div class="fowner">L. Thomas</div>
         </div>
         <div class="focus-row">
           <div class="fnum">3</div>
-          <div class="ftext">Onboarding Nudge pilot · Criminal Division
-            <em>30/60/90 checklist monitoring with manager nudges. Submission review at end of Q3.</em>
+          <div class="ftext">Juvenile Case Protection · RCW 13.50 annual audit
+            <em>Review every sealing enforcement action since launch. Confirm zero adult-case cross-contamination. Re-tune Copilot grounding on edge cases.</em>
           </div>
           <div class="fowner">M. Johnson</div>
         </div>
@@ -16318,9 +16280,9 @@ function thumbWins() {
   return `<div class="thumb content">
     <div class="th-h">Top 3 Wins</div>
     <div class="th-row">
-      <div class="th-box"><div class="th-n" style="font-size:6px;">◆</div>PTO in Teams</div>
-      <div class="th-box"><div class="th-n" style="font-size:6px;">✦</div>File Validator</div>
-      <div class="th-box"><div class="th-n" style="font-size:6px;">♥</div>Awards x2</div>
+      <div class="th-box"><div class="th-n" style="font-size:6px;">◆</div>Sheriff Intake</div>
+      <div class="th-box"><div class="th-n" style="font-size:6px;">✦</div>0 redaction misses</div>
+      <div class="th-box"><div class="th-n" style="font-size:6px;">♥</div>9,184 victim notif.</div>
     </div>
   </div>`;
 }
@@ -16328,9 +16290,9 @@ function thumbMay() {
   return `<div class="thumb content">
     <div class="th-h">Focus for May</div>
     <div class="th-agenda">
-      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">1</div>Front Door</div>
-      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">2</div>Client satisfaction</div>
-      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">3</div>Onboarding Nudge</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">1</div>PRA Desk → prod</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">2</div>Redact → Appeals</div>
+      <div class="th-ai"><div class="th-d" style="background:var(--kc-gold);">3</div>RCW 13.50 audit</div>
     </div>
   </div>`;
 }
@@ -16963,17 +16925,17 @@ const ABM_LOGOS = ['agentLogoReadmit','agentLogoBed','agentLogoIntake','agentLog
 
 // Default starter prompts — three sample questions shown on the agent's welcome card in Copilot chat.
 const ABM_DEFAULT_PROMPTS = [
-  "Which new hires are off-track at day 30 this week?",
-  "Summarize Mr. Chang's verification case and flag what's missing.",
-  "Draft the weekly onboarding nudge for the Criminal Division managers."
+  "Draft hearing notifications for the Reyes family for Friday's omnibus.",
+  "Summarize the Marsy's Law notices sent this week.",
+  "Review the tone on the draft to Ms. Ortega (SA survivor case)."
 ];
 
 let abmState = {
   step: 0,
-  description: "Help employees request PTO in Teams and route manager approvals to JIS. Use our PTO policy and the current Odyssey balances in SharePoint.",
-  name: "Onboarding Nudge",
-  role: "Proactively flag new hires at 30/60/90 days whose onboarding checklists are incomplete, and nudge their manager with the specific outstanding items before they fall off track.",
-  instructions: "Always lead with the employee name and their day number (30/60/90). Never recommend an charging decision — only surface the missing item and ask the manager to own it. Cite the specific document and date you pulled from. If you don't have enough information to answer, say so and offer what you do know.",
+  description: "Draft Marsy's Law victim notifications (hearing, plea, release, restitution) in sensitive tone. English + Spanish. Grounded on the office's victim-communication tone guide and VINE registry data.",
+  name: "Victim Notification Drafter",
+  role: "Draft Marsy's Law-compliant notifications for victims and surviving family members. Always tone-appropriate to the underlying case (SA, DV, homicide matters get senior-DPA review before send).",
+  instructions: "Always lead with empathy, then the specific fact (date, court, outcome). Never add opinion or commentary. Translate into the victim's preferred language per VINE. Flag any case involving homicide, DV, or SA for tone-review by a senior DPA before send. Cite the specific case event and date you pulled from.",
   logo: "agentLogoReadmit",
   starters: ABM_DEFAULT_PROMPTS.slice(),
   // Sources are limited to what the in-Copilot builder actually supports: SharePoint, OneDrive,
@@ -17123,25 +17085,25 @@ function abmStepDescribe() {
     <p class="abm-lede">Describe the goal in plain language. The agent builder lives inside Microsoft 365 Copilot, so it uses the SharePoint, OneDrive, and Teams data you already have — nothing leaves King County PAO's tenant.</p>
     <div class="abm-prompt-box">
       <div class="abm-prompt-label">Your goal</div>
-      <textarea id="abm-describe-input" placeholder="e.g. Help employees request PTO in Teams ...">${abmState.description}</textarea>
+      <textarea id="abm-describe-input" placeholder="e.g. Draft plea-offer letters grounded on the office's filing manual ...">${abmState.description}</textarea>
     </div>
     <div style="margin-top:22px; font-size:12px; font-weight:700; color:var(--gray-130); text-transform:uppercase; letter-spacing:0.8px;">Or start from a template</div>
     <div class="abm-templates">
       <div class="abm-template-card" onclick="abmApplyTemplate('readmit')">
-        <div class="abm-t-head"><div class="abm-t-ico">ON</div>Onboarding Nudge</div>
-        <div class="abm-t-desc">Flag new hires off-track at 30/60/90 days and nudge their manager.</div>
+        <div class="abm-t-head"><div class="abm-t-ico">VN</div>Victim Notification Drafter</div>
+        <div class="abm-t-desc">Draft Marsy's Law victim notifications grounded on tone guidelines. EN+ES. DPA-reviewed before send.</div>
       </div>
       <div class="abm-template-card" onclick="abmApplyTemplate('huddle')">
         <div class="abm-t-head"><div class="abm-t-ico">MH</div>Charging Huddle Prep</div>
-        <div class="abm-t-desc">Assemble the 7 AM case review brief from overnight notes and the DPA handoff.</div>
+        <div class="abm-t-desc">Assemble the 7 AM charging review brief from overnight KCSO referrals + JIS priors + case notes.</div>
       </div>
       <div class="abm-template-card" onclick="abmApplyTemplate('cert')">
-        <div class="abm-t-head"><div class="abm-t-ico">CT</div>File Validator</div>
-        <div class="abm-t-desc">Watch case files for missing bar-admission cert/W-4/handbook-ack docs and flag by retention policy.</div>
+        <div class="abm-t-head"><div class="abm-t-ico">PR</div>Policy Copilot (Filing Manual)</div>
+        <div class="abm-t-desc">Answer DPA questions grounded on the Filing &amp; Disposition Manual + RCW Title 9A + office charging memos.</div>
       </div>
       <div class="abm-template-card" onclick="abmApplyTemplate('patientq')">
-        <div class="abm-t-head"><div class="abm-t-ico">PQ</div>Sheriff Report Front Door</div>
-        <div class="abm-t-desc">Route self-service messages by case urgency and draft first-pass replies.</div>
+        <div class="abm-t-head"><div class="abm-t-ico">VW</div>Victim/Witness Triage</div>
+        <div class="abm-t-desc">Route incoming victim/witness messages by urgency and draft first-pass replies at a 6th-grade reading level.</div>
       </div>
     </div>
     <div style="margin-top:22px; padding:12px 14px; background:#f4f6f9; border-left:3px solid var(--kc-blue); border-radius:4px; font-size:12px; color:var(--gray-130); line-height:1.55;">
@@ -17152,19 +17114,19 @@ function abmStepDescribe() {
 function abmApplyTemplate(tpl) {
   const T = {
     readmit: {
-      description: "Proactively flag new hires at 30/60/90 days whose onboarding checklists are incomplete, and nudge their manager with the specific outstanding items before they fall off track. Use our onboarding policies and the current Odyssey new-hire cohort.",
-      name: "Onboarding Nudge", logo: "agentLogoReadmit",
-      instructions: "Always lead with the employee name and their day number (30/60/90). Never recommend an charging decision — only surface the missing item and ask the manager to own it. Cite the specific document and date you pulled from.",
+      description: "Draft Marsy's Law victim notifications (hearing, plea, release, restitution) in sensitive tone. English + Spanish. Grounded on KCPAO victim-communication tone guide + VINE registry data. Every notification is reviewed by a DPA before send.",
+      name: "Victim Notification Drafter", logo: "agentLogoReadmit",
+      instructions: "Always lead with empathy, then the specific fact (date, court, outcome). Never add opinion or commentary. Translate into the victim's preferred language per VINE. Flag any case involving homicide, DV, or SA for tone-review by a senior DPA before send.",
       starters: [
-        "Which new hires are off-track at day 30 this week?",
-        "Summarize Mr. Chang's verification case and flag what's missing.",
-        "Draft the weekly onboarding nudge for the Criminal Division managers."
+        "Draft hearing notifications for the Reyes family for Friday's omnibus.",
+        "Summarize the Marsy's Law notices sent this week.",
+        "Review the tone on the draft to Ms. Ortega (SA survivor case)."
       ]
     },
     huddle: {
-      description: "Assemble the 7 AM morning charging review brief from the overnight DPA handoff doc, the case log, and yesterday's onboarding tracker.",
+      description: "Assemble the 7 AM morning charging review brief from the overnight KCSO referral queue, JIS prior-conviction lookups, and the Sheriff Report Intake extractions.",
       name: "Charging Huddle Prep", logo: "agentLogoIntake",
-      instructions: "Keep it under 8 bullets. Always call out new intakes, escalations, audit events, and anyone whose case is at risk of closing today. Never include Case-file PII that isn't already in the shared handoff doc.",
+      instructions: "Keep it under 8 bullets. Always call out statute-of-limitations critical cases, juvenile matters (route to Juvenile Case Protection), and anyone with high-profile or media-sensitive context. Never include sealed-juvenile info.",
       starters: [
         "Build today's 7 AM charging huddle brief.",
         "What changed overnight that the oncoming DPA team needs to know?",
@@ -17172,23 +17134,23 @@ function abmApplyTemplate(tpl) {
       ]
     },
     cert: {
-      description: "Watch case files for missing bar-admission cert, W-4, offer, direct deposit, handbook ack, background check, and license/cert docs across all 6 divisions. Generate exception reports with remediation owner, and draft reminder emails for manager sign-off.",
-      name: "File Validator", logo: "agentLogoShield",
-      instructions: "Group findings by doc type (bar-admission cert / handbook / license). Always link to the specific case file. Do not email employees directly — draft and hand off to the manager.",
+      description: "Answer DPA questions grounded on the Filing & Disposition Manual, RCW Title 9A, Washington Court Rules (CrR / JuCR), and office charging memos. Every response cites its source — if the answer isn't in the knowledge base, refuse and say so.",
+      name: "Policy Copilot (Filing Manual)", logo: "agentLogoShield",
+      instructions: "Always cite the source manual section, RCW citation, or charging memo. Never speculate or generate advice not grounded in the knowledge base. For conflicts between sources, surface both and recommend escalation to a senior DPA.",
       starters: [
-        "Whose case files have missing bar-admission certs this month?",
-        "Draft a reminder email for A. Thompson's handbook acknowledgment.",
-        "Who is at risk of being on payroll without complete docs?"
+        "What's the charging standard for Residential Burglary 1°?",
+        "Find the office's position on plea offers for first-time felony drug cases.",
+        "Cite the RCW section on juvenile declines to adult court."
       ]
     },
     patientq: {
-      description: "Route incoming self-service victim/witness messages by urgency and draft a first-pass reply in the defendant's preferred language at a 6th-grade reading level.",
-      name: "Sheriff Report Front Door", logo: "agentLogoIntake",
-      instructions: "Never give charging advice beyond what's in the handbook. Acknowledge the defendant's feeling first, name the concern in plain language, and offer a concrete next step (call the benefits line, schedule, wait for X). Flag urgent items for immediate DPA review.",
+      description: "Route incoming victim/witness messages by urgency and draft a first-pass reply in the recipient's preferred language at a 6th-grade reading level.",
+      name: "Victim/Witness Triage", logo: "agentLogoIntake",
+      instructions: "Never give legal advice. Acknowledge the feeling first, name the case-status fact in plain language, and offer a concrete next step (VINE registration, Victim Services phone, hearing date). Flag urgent items (safety concerns, hearing within 48h) for immediate DPA review.",
       starters: [
-        "Triage today's self-service messages by urgency.",
-        "Draft a reply to Jessica Huang about her missing handbook ack + DD issue.",
-        "Which messages need an DPA's eyes today?"
+        "Triage today's self-service victim/witness messages by urgency.",
+        "Draft a reply to Ms. Gonzalez about her VINE notification question.",
+        "Which messages need a DPA's eyes today?"
       ]
     }
   };
@@ -17452,10 +17414,10 @@ function publishAgent() {
   // Reset state for the next time the builder opens
   abmState = {
     step: 0,
-    description: "Help employees request PTO in Teams and route manager approvals to JIS. Use our PTO policy and the current Odyssey balances in SharePoint.",
-    name: "Onboarding Nudge",
-    role: "Proactively flag new hires at 30/60/90 days whose onboarding checklists are incomplete, and nudge their manager with the specific outstanding items before they fall off track.",
-    instructions: "Always lead with the employee name and their day number (30/60/90). Never recommend an charging decision — only surface the missing item and ask the manager to own it. Cite the specific document and date you pulled from. If you don't have enough information to answer, say so and offer what you do know.",
+    description: "Draft Marsy's Law victim notifications (hearing, plea, release, restitution) in sensitive tone. English + Spanish. Grounded on the office's victim-communication tone guide and VINE registry data.",
+    name: "Victim Notification Drafter",
+    role: "Draft Marsy's Law-compliant notifications for victims and surviving family members. Always tone-appropriate to the underlying case.",
+    instructions: "Always lead with empathy, then the specific fact (date, court, outcome). Never add opinion or commentary. Translate into the victim's preferred language per VINE. Flag any case involving homicide, DV, or SA for tone-review by a senior DPA before send. Cite the specific case event and date you pulled from.",
     logo: "agentLogoReadmit",
     starters: ABM_DEFAULT_PROMPTS.slice(),
     sources: { sp_oncology: true, sp_policies: true, onedrive: true, teams: false, files: false, web: false },
